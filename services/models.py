@@ -1,3 +1,5 @@
+from django.conf import settings
+from django.core.cache import cache
 from django.core.validators import MaxValueValidator
 from django.db import models
 
@@ -57,3 +59,7 @@ class Subscription(models.Model):
 
     def __str__(self):
         return f'{self.client} - {self.service}'
+
+    def save(self, *args, **kwargs):
+        set_price.delay(self.id)
+        return super().save(*args, **kwargs)
