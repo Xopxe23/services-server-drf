@@ -1,0 +1,1 @@
+[{"model": "services.plan", "pk": 1, "fields": {"plan_type": "full", "discount_percents": 0}}, {"model": "services.plan", "pk": 2, "fields": {"plan_type": "student", "discount_percents": 20}}, {"model": "services.plan", "pk": 3, "fields": {"plan_type": "discount", "discount_percents": 9}}]

@@ -1,0 +1,1 @@
+[{"model": "services.service", "pk": 1, "fields": {"name": "Tech Support", "full_price": 300}}, {"model": "services.service", "pk": 2, "fields": {"name": "Music", "full_price": 150}}]

@@ -2,6 +2,8 @@ from django.conf import settings
 from django.core.cache import cache
 from django.db.models import Prefetch, F, Sum
 from django.shortcuts import render
+from django.utils.decorators import method_decorator
+from django.views.decorators.cache import cache_page
 from rest_framework.viewsets import ReadOnlyModelViewSet
 
 from clients.models import Client
@@ -17,6 +19,7 @@ class SubscriptionView(ReadOnlyModelViewSet):
     )
     serializer_class = SubscriptionSerializer
 
+    @method_decorator(cache_page(10))
     def list(self, request, *args, **kwargs):
         queryset = self.filter_queryset(self.get_queryset())
         response = super().list(request, *args, **kwargs)
